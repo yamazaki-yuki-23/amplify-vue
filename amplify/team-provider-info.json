@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "viteproject3f4bf504": {}
+      },
+      "api": {
+        "viteproject": {}
       }
     }
   }
