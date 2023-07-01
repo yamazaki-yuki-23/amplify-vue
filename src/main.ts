@@ -1,14 +1,21 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
 
-const app = createApp(App)
+// Amplify
+import { Amplify } from 'aws-amplify'
+import awsconfig from './aws-exports'
+Amplify.configure(awsconfig)
 
+// Amplify UI Vue
+import AmplifyVue from '@aws-amplify/ui-vue'
+import '@aws-amplify/ui-vue/styles.css'
+
+const app = createApp(App)
 app.use(createPinia())
+app.use(AmplifyVue)
 app.use(router)
 
 app.mount('#app')
