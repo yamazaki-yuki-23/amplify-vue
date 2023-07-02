@@ -25,7 +25,6 @@ import { createMessage } from '@/graphql/mutations'
 import { listMessages } from '@/graphql/queries'
 import { onCreateMessage } from '@/graphql/subscriptions'
 import { ref, onBeforeUnmount, onUpdated, computed } from 'vue'
-import type { ZenObservable } from 'zen-observable-ts'
 import type { CreateMessageInput } from '@/API'
 
 interface Message {
@@ -41,7 +40,7 @@ const props = defineProps<{
 
 const messages = ref<Message[]>([])
 const content = ref('')
-let subscription: ZenObservable.Subscription | undefined
+let subscription: { unsubscribe: () => void }
 
 const sendMessage = async (event: KeyboardEvent) => {
   if (event.key !== 'Enter' || !content.value) return
