@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
@@ -14,7 +13,6 @@ import AmplifyVue from '@aws-amplify/ui-vue'
 import '@aws-amplify/ui-vue/styles.css'
 
 const app = createApp(App)
-app.use(createPinia())
 app.use(AmplifyVue)
 app.use(router)
 
